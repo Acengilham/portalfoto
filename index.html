@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fhotoboth Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .logo i {
+            font-size: 50px;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            color: #6c757d;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+        }
+
+        .menu-card.admin::before {
+            background: #ef233c;
+        }
+
+        .menu-card.payment::before {
+            background: var(--primary);
+        }
+
+        .menu-card.user::before {
+            background: var(--success);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+        }
+
+        .admin .card-icon {
+            background: linear-gradient(135deg, #ef233c 0%, #d90429 100%);
+        }
+
+        .payment .card-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .user .card-icon {
+            background: linear-gradient(135deg, var(--success) 0%, #4895ef 100%);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .card-desc {
+            color: #6c757d;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .admin .btn {
+            background: #ef233c;
+        }
+
+        .payment .btn {
+            background: var(--primary);
+        }
+
+        .user .btn {
+            background: var(--success);
+        }
+
+        footer {
+            margin-top: 60px;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-camera-retro"></i>
+            </div>
+            <h1>Fhotoboth Portal</h1>
+            <p class="subtitle">Selamat datang di sistem manajemen Fhotoboth. Pilih menu yang ingin Anda akses.</p>
+        </header>
+
+        <div class="menu-grid">
+            <div class="menu-card admin" onclick="window.location.href='https://acengilham.github.io/admincs/'">
+                <div class="card-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h2>Admin Dashboard</h2>
+                <p class="card-desc">Akses panel admin untuk mengelola transaksi, generate kode, dan melihat laporan.</p>
+                <button class="btn">Masuk sebagai Admin</button>
+            </div>
+
+            <div class="menu-card payment" onclick="window.location.href='https://acengilham.github.io/paysite/'">
+                <div class="card-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <h2>Payment Portal</h2>
+                <p class="card-desc">Proses pembayaran melalui QRIS atau verifikasi pembayaran cash dengan kode unik.</p>
+                <button class="btn">Akses Pembayaran</button>
+            </div>
+
+            <div class="menu-card user" onclick="window.location.href='https://acengilham.github.io/paysite/'">
+                <div class="card-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2>User Access</h2>
+                <p class="card-desc">Masuk sebagai pengguna untuk melihat foto dan hasil photobooth Anda.</p>
+                <button class="btn">Masuk sebagai User</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 Fhotoboth by Acengilhmnrllh. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add animation when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.menu-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
